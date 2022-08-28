@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate,Route,Routes } from "react-router-dom";
+import SignIn from "../src/ComponentClass/SignIn"
+import SignUp from "../src/ComponentClass/SignUp"
+import LandingPage from "./ComponentClass/LandingPage";
+import HomePage from "./ComponentClass/HomePage";
+import NotFound from "./ComponentClass/NotFound";
+import Pay from "./Pay";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+ 
+  return ( 
+    <Routes>
+      <Route path="/" element={<LandingPage/>} />
+      <Route path="/LandingPage" element={<Navigate to="/"/>}/>
+      <Route path="/SignUp" element={<SignUp/>}/>
+       <Route path="/SignIn" element={<SignIn/>}/>
+       <Route path="/HomePage" element={<HomePage/>}/>
+       <Route path="/PaystackPop" element={<Pay/>}/>
+       <Route path="*" element={<NotFound/>}/>
+      </Routes>
+   );
 }
-
+ 
 export default App;
+
